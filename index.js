@@ -1,6 +1,6 @@
 'use strict';
 
-//connet model
+//connect model
 const { sequelizeDatabase, BeesModel } = require('./src/models');
 const { sequelizeDatabase, FlowersModel } = require('./src/models');
 

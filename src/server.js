@@ -2,8 +2,8 @@
 
 //change route once changed
 import express, { json } from 'express';
-import notFound from './error-handlers/404';
-import errorHandler from './error-handlers/500';
+import notFound from './middleware/error-handlers/404';
+import errorHandler from './middleware/error-handlers/500';
 import logger from './middleware/logger';
 import validator from './middleware/validator';
 import beesRouter from './routes/bees';

@@ -11,6 +11,11 @@ import flowersRouter from './routes/flowers';
 
 const PORT = process.env.PORT || 3002;
 
+// const { BeesModel } = require('../src/model/bees.schema');
+// const { FlowersModel } = require('../src/model/flowers.schema');
+// const router = express.Router();
+
+
 // const notFound = require('./error-handlers/404');
 // const errorHandler = require('./error-handlers/500');
 

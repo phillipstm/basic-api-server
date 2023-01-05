@@ -1,10 +1,10 @@
 'use strict';
 
-const supertest = require('supertest');
-const { app } = require('../src/server');
-const req = supertest(app);
+// const supertest = require('supertest');
+// const { app } = require('../src/server');
+// const req = supertest(app);
 
-let logger = require('./middleware/logger');
+const logger = require('./middleware/logger');
 
 
 describe('test logger middleware', () => {
@@ -26,8 +26,9 @@ describe('test logger middleware', () => {
     console.log('req', req);
     expect(consoleSpy).toHaveBeenCalledWith(`REQUEST: ${req.method}, ${req.originalURL}`);
   });
-  test('Calls next()', () => {
+  test('Works as expected', () => {
     logger(req, res, next);
+    expect(consoleSpy).toHaveBeenCalledWith(req.method, req.path);
     expect(next).toHaveBeenCalledWith();
   });
 });

@@ -2,32 +2,38 @@
 
 //change route once changed
 import express, { json } from 'express';
-import notFound from './middleware/error-handlers/404';
-import errorHandler from './middleware/error-handlers/500';
+// import notFound from './middleware/error-handlers/404';
+// import errorHandler from './middleware/error-handlers/500';
 import logger from './middleware/logger';
 import validator from './middleware/validator';
-import beesRouter from './routes/bees';
-import flowersRouter from './routes/flowers';
+// import BeesModel from './routes/bees';
+// import FlowersModel from './routes/flowers';
+import customRoutes from './model/index';
 
-const PORT = process.env.PORT || 3002;
+
+const PORT = process.env.PORT || 5432;
+
+const sequelize = require('sequelize');
 
 // const { BeesModel } = require('../src/model/bees.schema');
 // const { FlowersModel } = require('../src/model/flowers.schema');
-// const router = express.Router();
+// const customRoutes = express.Router();
 
 
-// const notFound = require('./error-handlers/404');
-// const errorHandler = require('./error-handlers/500');
+const notFound = require('./error-handlers/404');
+const errorHandler = require('./error-handlers/500');
 
+// const express = require('express');
 const app = express();
-// const customRoutes = require('./routes.js');
+const customRoutes = require('./routes.js');
 
 app.use(logger);
 app.use(validator);
 
 app.use(json());
-app.use(beesRouter);
-app.use(flowersRouter);
+app.use(beesData);
+app.use(flowersData);
+app.use('/custom', customRoutes);
 
 
 app.get('./', (req, res) => {  res.status(200).send('Hello Planet Ambassadors');

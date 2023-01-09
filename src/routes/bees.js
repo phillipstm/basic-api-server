@@ -6,7 +6,7 @@ const { BeeModel } = require('../model/bees.schema');
 const router = express.beesRouter();
 
 router.get('/bees', (req, res) => {
-  const data = {
+  const Bee = {
     fromParam: req.params.beeName,
     fromReq: req.beeName,
   };

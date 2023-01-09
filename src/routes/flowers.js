@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const { FlowerModel } = require('../model/flowers.schema');
+const { FlowerModel } = require('../model/flowers.schema').default;
 
 const router = express.Router();
 

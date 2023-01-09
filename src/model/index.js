@@ -1,9 +1,10 @@
 'use strict';
 
 require('dotenv').config();
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize } = require('sequelize');
+
 const bees = require('./bees.schema');
-const flowers = require('./flowers.schema');
+const flowers = require('./flowers.schema').default;
 
 'postgres://localhost:5432/d48-d8-api-app';
 'postgres:username:password@localhost:5432/d48-d8-api-app';
@@ -16,7 +17,7 @@ const DATABASE_URL = process.env.NODE_ENV === 'test'
 //initialize database
 const sequelizeDatabase = new Sequelize(DATABASE_URL);
 
-const BeeModel = bees(sequelizeDatabase, Datatypes);
-const FlowerModel = flowers(sequelizeDatabase, Datatypes);
+const BeeModel = bees(sequelizeDatabase);
+const FlowerModel = flowers(sequelizeDatabase);
 
 module.exports = { sequelizeDatabase, BeeModel, FlowerModel };

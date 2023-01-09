@@ -21,7 +21,6 @@
         "type": "git",
         "url": "git+https://https://github.com/phillipstm/basic-api-server"
     },
-
     "test": {
         "username": "root",
         "password": null,

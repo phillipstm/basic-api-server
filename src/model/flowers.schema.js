@@ -1,6 +1,9 @@
 'use strict';
 
-module.exports = (sequelizeDatabase, DataTypes) => {
+import sequelize = require('sequelize');
+
+
+export default (sequelizeDatabase, DataTypes) => {
   return sequelizeDatabase.define('flowers', {
     name: {
       type: DataTypes.STRING,

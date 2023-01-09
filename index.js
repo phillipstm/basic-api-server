@@ -11,4 +11,4 @@ sequelizeDatabase.sync()
 
     .catch(err => console.error(err));
 
-//Start();
+Start();
